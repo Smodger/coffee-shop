@@ -1,0 +1,10 @@
+<section>
+  <ul class="row">
+    <li ng-repeat="topping in toppingsIndex.all" class="four columns">
+      <a ui-sref="toppingsShow({ id: topping._id })">
+        <h2>{{ topping.name }}</h2>
+        <h4>{{ topping.price }}</h4>
+      </a>
+    </li>
+  </ul>
+</section>
