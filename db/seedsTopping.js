@@ -30,6 +30,10 @@ Topping.create([{
   name: 'Ginger',
   price: 0.5,
   identification: 6
+},{
+  name: 'Honey',
+  price: 0.5,
+  identification: 7
 }], (err, toppings) => {
   if(err) console.log('There was an error creating drinks', err);
 

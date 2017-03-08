@@ -1,0 +1,28 @@
+<section ng-controller="DrinksIndexController as drinksIndex">
+  <h2>Choose your drink</h2>
+  <ul class="row">
+    <li ng-repeat="drink in drinksIndex.all" class="four columns">
+      <a ui-sref="drinksShow({ id: drink._id })">
+        <h2>{{ drink.name }}</h2>
+        <h4>{{ drink.price }}</h4>
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section ng-controller="ToppingsIndexController as toppingsIndex">
+  <h2>Choose your Topping</h2>
+  <ul class="row">
+    <li ng-repeat="topping in toppingsIndex.all" class="four columns">
+      <a ui-sref="toppingssShow({ id: topping._id })">
+        <h2>{{ topping.name }}</h2>
+        <h4>{{ topping.price }}</h4>
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h4>Your Basket</h4>
+    
+</section>

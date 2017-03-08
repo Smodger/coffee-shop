@@ -47,6 +47,11 @@ function Router($stateProvider, $urlRouterProvider) {
   templateUrl: '/templates/toppingsEdit.html',
   controller: 'ToppingsEditController as toppingsEdit'
 })
+.state('home', {
+    url: '/',
+    templateUrl: '/templates/home.html'
+    // controller: 'HomeController as home'
+  })
 .state('login', {
   url: '/login',
   templateUrl: '/templates/login.html',
@@ -57,7 +62,7 @@ function Router($stateProvider, $urlRouterProvider) {
   templateUrl: '/templates/register.html',
   controller: 'RegisterController as register'
 });
-  $urlRouterProvider.otherwise('/drinks');
+  $urlRouterProvider.otherwise('/');
 }
 
 Auth.$inject = ['$authProvider'];
