@@ -1,0 +1,21 @@
+{
+  "name": "coffee-shop",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mike Hayden <mickyginger@gmail.com> (https://github.com/mickyginger)",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^7.1.9",
+    "mongoose": "^4.6.6",
+    "morgan": "^1.7.0",
+    "validator": "^6.1.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}

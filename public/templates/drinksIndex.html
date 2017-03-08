@@ -1,0 +1,10 @@
+<section>
+  <ul class="row">
+    <li ng-repeat="drink in drinksIndex.all" class="four columns">
+      <a ui-sref="drinksShow({ id: drink._id })">
+        <h2>{{ drink.name }}</h2>
+        <h4>{{ drink.price }}</h4>
+      </a>
+    </li>
+  </ul>
+</section>

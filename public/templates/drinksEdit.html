@@ -1,0 +1,14 @@
+<section class="row">
+  <form ng-submit="drinksEdit.update()">
+    <div class="twelve columns">
+      <label>Drink</label>
+      <input type="text" name="name" placeholder="Drink" ng-model="drinksEdit.drink.name" class="u-full-width">
+    </div>
+    <div class="twelve columns">
+      <label>Price</label>
+      <input type="text" name="price" placeholder="Price" ng-model="drinksEdit.drink.price" class="u-full-width">
+    </div>
+
+    <button>Update</button>
+  </form>
+</section>
