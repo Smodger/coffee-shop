@@ -1,4 +1,5 @@
 <section>
+  <h2>Choose your drink</h2>
   <ul class="row">
     <li ng-repeat="drink in drinksIndex.all" class="four columns">
       <a ui-sref="drinksShow({ id: drink._id })">
@@ -7,4 +8,7 @@
       </a>
     </li>
   </ul>
+
+  <button type="button" name="button">select your toppings</button>
+
 </section>

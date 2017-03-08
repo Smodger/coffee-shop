@@ -4,14 +4,13 @@ angular.module('drinksApp')
 .controller('DrinksShowController', DrinksShowController)
 .controller('DrinksEditController', DrinksEditController);
 
-
-
 DrinksIndexController.$inject = ['Drink'];
 function DrinksIndexController(Drink) {
   const drinksIndex = this;
 
   drinksIndex.all = Drink.query();
 }
+
 DrinksNewController.$inject = ['Drink', '$state'];
 function DrinksNewController(Drink, $state) {
   const drinksNew = this;
