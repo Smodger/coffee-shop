@@ -1,28 +1,30 @@
-<section ng-controller="DrinksIndexController as drinksIndex">
+<section ng-controller="DrinksIndexController as drinksIndex" ng-show="main.chooseDrinkAndTopping()">
   <h2>Choose your drink</h2>
   <ul class="row">
-    <li ng-repeat="drink in drinksIndex.all" class="four columns">
-      <a ui-sref="drinksShow({ id: drink._id })">
-        <h2>{{ drink.name }}</h2>
-        <h4>{{ drink.price }}</h4>
-      </a>
+    <li ng-repeat="drink in drinksIndex.all" class="drinkInformation">
+
+        <h4 class="name">{{ drink.name }}</h4>
+        <h6 class="price">£{{ drink.price }}</h6>
+
+      <button type="button" name="button" ng-click="main.addToBasket({drinkName: drink.name, drinkPrice: drink.price})">Add to cart</button>
     </li>
   </ul>
 </section>
 
-<section ng-controller="ToppingsIndexController as toppingsIndex">
+<section ng-controller="ToppingsIndexController as toppingsIndex" class="allToppings" ng-hide="main.chooseDrinkAndTopping()">
   <h2>Choose your Topping</h2>
   <ul class="row">
-    <li ng-repeat="topping in toppingsIndex.all" class="four columns">
-      <a ui-sref="toppingssShow({ id: topping._id })">
-        <h2>{{ topping.name }}</h2>
-        <h4>{{ topping.price }}</h4>
-      </a>
+    <li ng-repeat="topping in toppingsIndex.all" class="toppingInformation">
+        <h4 class="name">{{ topping.name }}</h4>
+        <h6 class="price">£{{ topping.price }}</h6>
+      <button type="button" class="basket" ng-click="main.addToBasket({toppingName: topping.name, toppingPrice: topping.price})">Add to cart</button>
     </li>
   </ul>
 </section>
 
 <section>
   <h4>Your Basket</h4>
-    
+
+  <p>{{MainController.basket.drinkName}}</p>
+
 </section>

@@ -8,12 +8,31 @@ nav ul li {
   text-align: center;
 }
 
-nav ul li a {
-  display: block;
-  text-decoration: none;
-  padding: 10px;
-}
-
 nav ul li a.active {
   background-color: #fcfcfc;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.drinkInformation,.toppingInformation {
+  display: block;
+  width: 75%;
+}
+
+.name {
+display: inline-block;
+margin-right: 20px;
+color: red;
+font-size: 22px;
+}
+
+.price {
+  display: inline-block;
+  margin-right: 20px;
+  color: green;
+  font-size: 18px;
 }
