@@ -9,25 +9,24 @@ function DrinksIndexController(Drink) {
   const drinksIndex = this;
   drinksIndex.selectedDrink = null;
   drinksIndex.toppingsVisible = false;
-  let orderItem = [];
-  let basket = [];
+  drinksIndex.orderItem = [];
+  drinksIndex.basket = [];
 
   drinksIndex.all = Drink.query();
 
   function addToOrderItem (obj, isDrink){
     if(isDrink) drinksIndex.selectedDrink = obj;
 
-    orderItem.push(obj);
+    drinksIndex.orderItem.push(obj);
     console.log("obj",obj);
     drinksIndex.toppingsVisible = true;
-    orderItem.length = Math.min(orderItem.length, 3);
-    console.log("order-item",orderItem);
+    drinksIndex.orderItem.length = Math.min(drinksIndex.orderItem.length, 3);
   }
   drinksIndex.addToOrderItem = addToOrderItem;
 
-  function addToBasket() {
-    let basket = orderItem;
-    console.log("basket",basket);
+  function addToBasket(orderItem) {
+    drinksIndex.basket = orderItem;
+    console.log(drinksIndex.basket);
   }
   drinksIndex.addToBasket = addToBasket;
 

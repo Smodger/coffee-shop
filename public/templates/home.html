@@ -23,7 +23,13 @@
   </div>
 
   <div class="basketDiv">
-    <button class="basket" ng-click="drinksIndex.addToBasket()">click here to view your basket</button>
-    <h6>{{ drinksIndex.basket.drink.name }}</h6>
+    <button class="basket" ng-click="drinksIndex.addToBasket(drinksIndex.orderItem)">click here to view your basket</button>
+    <div class="basketInfo">
+      <h6 id="drinkInfo">{{drinksIndex.basket[0].name}} {{drinksIndex.basket[0].price}}</h6>
+      <h6 id="toppingOneInfo">{{drinksIndex.basket[1].name}} {{drinksIndex.basket[1].price}}</h6>
+      <h6 id="toppingTwoInfo">{{drinksIndex.basket[2].name}} {{drinksIndex.basket[2].price}}</h6>
+      <h6 class="totalPrice">Total Price: {{drinksIndex.basket[0].price + drinksIndex.basket[1].price + drinksIndex.basket[2].price}}</h6>
+    </div>
+
   </div>
 </section>
