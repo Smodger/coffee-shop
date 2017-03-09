@@ -28,7 +28,7 @@
       <h6 id="drinkInfo">{{drinksIndex.basket[0].name}} {{drinksIndex.basket[0].price | number : 2}}</h6>
       <h6 id="toppingOneInfo">{{drinksIndex.basket[1].name}} {{drinksIndex.basket[1].price | number : 2}}</h6>
       <h6 id="toppingTwoInfo">{{drinksIndex.basket[2].name}} {{drinksIndex.basket[2].price | number : 2}}</h6>
-      <h6 class="totalPrice">Total Price: £{{drinksIndex.basket[0].price | number : 2 + drinksIndex.basket[1].price | number : 2 + drinksIndex.basket[2].price | number : 2}}</h6>
+      <h6 class="totalPrice">Total Price: £{{(drinksIndex.basket[0].price + drinksIndex.basket[1].price + drinksIndex.basket[2].price) | number : 2}}</h6>
     </div>
 
   </div>

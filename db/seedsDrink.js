@@ -63,7 +63,7 @@ Topping.create([{
 
 })
 .then((drinks) => {
-  console.log(`${drinks.length} drinks created!`);
+  console.log(drinks, `${drinks.length} drinks created!`);
 })
 .catch((err) => {
   console.log(err);
