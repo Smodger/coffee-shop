@@ -1,35 +1,73 @@
 const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 const db = require('../config/db');
 const Drink = require('../models/drink');
+const Topping = require('../models/topping');
 
 mongoose.connect(db.uri);
 
-Drink.collection.drop();
+mongoose.connection.dropDatabase();
 
-Drink.create([{
-  name: 'Latte',
-  price: 2.50,
-  availableTopping:  [1, 2, 3, 4, 6, 7]
+Topping.create([{
+  name: 'Double Espresso',
+  price: 1.00,
+  identification: 1
 },{
-  name: 'Cappuccino',
-  price: 2.50,
-  availableTopping:  [1, 2, 3, 4 , 6 , 7]
+  name: 'Chocolate',
+  price: 0.5,
+  identification: 2
 },{
-  name: 'Tea',
-  price: 2.00,
-  availableTopping: [5 ,6 , 7]
+  name: 'Vanilla',
+  price: 0.5,
+  identification: 3
 },{
-  name: 'Flat-White',
-  price: 2.50,
-  availableTopping:  [1 , 2 , 3 , 4 , 6 , 7]
+  name: 'Caramel',
+  price: 0.5,
+  identification: 4
 },{
-  name: 'Espresso',
-  price: 2.00,
-  availableTopping:  [1 , 2 , 3 , 4 , 6 , 7]
-}
-], (err, drinks) => {
-  if(err) console.log('There was an error creating drinks', err);
+  name: 'Mint',
+  price: 0.4,
+  identification: 5
+},{
+  name: 'Ginger',
+  price: 0.5,
+  identification: 6
+},{
+  name: 'Honey',
+  price: 0.5,
+  identification: 7
+}])
+.then((toppings) => {
+  console.log(`${toppings.length} toppings created`);
+  return Drink.create([{
+    name: 'Latte',
+    price: 2.50,
+    availableTopping:  [toppings[0], toppings[1], toppings[2], toppings[3], toppings[5], toppings[6]]
+  },{
+    name: 'Cappuccino',
+    price: 2.50,
+    availableTopping:  [toppings[0], toppings[1], 3, toppings[3] , toppings[5] , toppings[6]]
+  },{
+    name: 'Tea',
+    price: 2.00,
+    availableTopping: [toppings[4] ,toppings[5] , toppings[6]]
+  },{
+    name: 'Flat-White',
+    price: 2.50,
+    availableTopping:  [toppings[0] , toppings[1], toppings[2] , toppings[3] , toppings[5] , toppings[6]]
+  },{
+    name: 'Espresso',
+    price: 2.00,
+    availableTopping:  [toppings[0] , toppings[1] , toppings[2] , toppings[3] , toppings[5] , toppings[6]]
+  }]);
 
+})
+.then((drinks) => {
   console.log(`${drinks.length} drinks created!`);
+})
+.catch((err) => {
+  console.log(err);
+})
+.finally(() => {
   mongoose.connection.close();
 });

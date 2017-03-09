@@ -1,16 +1,73 @@
-ul {
-  list-style: none;
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-nav ul li {
+body {
+  background-image: url("http://assets.londonist.com/uploads/2016/04/vagabondcoffee2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+header {
+  width: 100%;
+  margin-bottom: 2%;
+}
+
+table {
+  margin-left: 5%;
+  width: 80%;
+  height: 300px;
+}
+
+td {
   display: inline-block;
-  min-width: 100px;
-  text-align: center;
+  margin-top: 0;
+  padding-top: 0;
 }
 
-nav ul li a.active {
-  background-color: #fcfcfc;
+button {
+  width: 100px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
+.title {
+  margin: 2%;
+  color: white;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 30px;
+  color: #fff !important;
+}
+
+.navbar {
+  background-image:
+    linear-gradient(#663300, #D2691E);
+  height: 100px;
+}
+
+.dropdown-menu {
+  background-image:
+    linear-gradient(#663300, #D2691E);
+}
+
+.nav-link, .dropdown-item {
+  color: white!important;
+}
+
+.dropdown-item:hover {
+    font-weight: bold;
+    background-color: #6f4e37;
+    color: white !important;
+  }
 
 a {
   text-decoration: none;
@@ -18,21 +75,14 @@ a {
   margin-right: 20px;
 }
 
-.drinkInformation,.toppingInformation {
-  display: block;
-  width: 75%;
-}
-
 .name {
-display: inline-block;
-margin-right: 20px;
+margin-right: 5px;
 color: red;
 font-size: 22px;
 }
 
 .price {
-  display: inline-block;
   margin-right: 20px;
   color: green;
-  font-size: 18px;
+  font-size: 22px;
 }

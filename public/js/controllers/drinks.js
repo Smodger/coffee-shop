@@ -7,8 +7,30 @@ angular.module('drinksApp')
 DrinksIndexController.$inject = ['Drink'];
 function DrinksIndexController(Drink) {
   const drinksIndex = this;
+  drinksIndex.selectedDrink = null;
+  drinksIndex.toppingsVisible = false;
+
+  let basket = [];
+
+  function chooseDrinkAndTopping() {
+    if(basket.length === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  drinksIndex.chooseDrinkAndTopping = chooseDrinkAndTopping;
 
   drinksIndex.all = Drink.query();
+
+  function addToBasket(drink) {
+    drinksIndex.selectedDrink = drink;
+
+    basket.push({drinkName: drink.name, drinkPrice: drink.price});
+    basket.length = Math.min(basket.length, 3);
+    console.log(basket);
+  }
+  drinksIndex.addToBasket = addToBasket;
 }
 
 DrinksNewController.$inject = ['Drink', '$state'];

@@ -1,10 +1,13 @@
 const Drink = require('../models/drink');
 
 function drinksIndex(req, res) {
-  Drink.find((err, drinks) => {
-    if(err) return res.status(500).json({ error: err });
-    return res.json(drinks);
-  });
+  Drink
+    .find()
+    .populate('availableTopping')
+    .exec((err, drinks) => {
+      if(err) return res.status(500).json({ error: err });
+      return res.json(drinks);
+    });
 }
 
 function drinksCreate(req, res) {

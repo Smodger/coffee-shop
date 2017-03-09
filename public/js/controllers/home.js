@@ -17,19 +17,4 @@ function MainController($auth, $rootScope, $state) {
   }
   main.chooseDrinkAndTopping = chooseDrinkAndTopping;
 
-  function addToBasket(data) {
-    basket.push(data);
-    basket.length = Math.min(basket.length, 3);
-    console.log(basket);
-  }
-  main.addToBasket = addToBasket;
-
-  function filterToppingsByDrink(){
-    if(basket.drinkName === "Tea") {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  main.filterToppingsByDrink = filterToppingsByDrink;
 }
