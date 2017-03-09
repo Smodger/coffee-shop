@@ -8,10 +8,10 @@ Router.$inject = ['$stateProvider', '$urlRouterProvider'];
 function Router($stateProvider, $urlRouterProvider) {
   $stateProvider
 .state('drinksIndex', {
-    url: '/drinks',
-    templateUrl: '/templates/drinksIndex.html',
-    controller: 'DrinksIndexController as drinksIndex'
-  })
+  url: '/drinks',
+  templateUrl: '/templates/drinksIndex.html',
+  controller: 'DrinksIndexController as drinksIndex'
+})
 .state('drinksNew', {
   url: '/drinks/new',
   templateUrl: '/templates/drinksNew.html',
@@ -28,10 +28,10 @@ function Router($stateProvider, $urlRouterProvider) {
   controller: 'DrinksEditController as drinksEdit'
 })
 .state('toppingsIndex', {
-    url: '/topping',
-    templateUrl: '/templates/toppingsIndex.html',
-    controller: 'ToppingsIndexController as toppingsIndex'
-  })
+  url: '/topping',
+  templateUrl: '/templates/toppingsIndex.html',
+  controller: 'ToppingsIndexController as toppingsIndex'
+})
 .state('toppingsNew', {
   url: '/toppings/new',
   templateUrl: '/templates/toppingsNew.html',
@@ -48,10 +48,10 @@ function Router($stateProvider, $urlRouterProvider) {
   controller: 'ToppingsEditController as toppingsEdit'
 })
 .state('home', {
-    url: '/',
-    templateUrl: '/templates/home.html'
-    // controller: 'HomeController as home'
-  })
+  url: '/',
+  templateUrl: '/templates/home.html'
+  // controller: 'HomeController as home'
+})
 .state('login', {
   url: '/login',
   templateUrl: '/templates/login.html',

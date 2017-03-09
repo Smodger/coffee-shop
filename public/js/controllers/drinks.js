@@ -12,6 +12,20 @@ function DrinksIndexController(Drink) {
 
   let basket = [];
 
+  drinksIndex.all = Drink.query();
+
+  function addToBasket(drink) {
+    drinksIndex.selectedDrink = drink;
+    //drinksIndex.selectedDrink.availableTopping = topping;
+
+    console.log(drink.availableTopping);
+    basket.push({drinkName: drink.name, drinkPrice: drink.price});
+    //toppingName: drink.availableTopping[1].name, toppingPrice: drink.availableTopping[1].prices
+    basket.length = Math.min(basket.length, 3);
+    console.log(basket);
+  }
+  drinksIndex.addToBasket = addToBasket;
+
   function chooseDrinkAndTopping() {
     if(basket.length === 0) {
       return true;
@@ -20,17 +34,6 @@ function DrinksIndexController(Drink) {
     }
   }
   drinksIndex.chooseDrinkAndTopping = chooseDrinkAndTopping;
-
-  drinksIndex.all = Drink.query();
-
-  function addToBasket(drink) {
-    drinksIndex.selectedDrink = drink;
-
-    basket.push({drinkName: drink.name, drinkPrice: drink.price});
-    basket.length = Math.min(basket.length, 3);
-    console.log(basket);
-  }
-  drinksIndex.addToBasket = addToBasket;
 }
 
 DrinksNewController.$inject = ['Drink', '$state'];

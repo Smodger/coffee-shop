@@ -64,10 +64,10 @@ button {
 }
 
 .dropdown-item:hover {
-    font-weight: bold;
-    background-color: #6f4e37;
-    color: white !important;
-  }
+  font-weight: bold;
+  background-color: #6f4e37;
+  color: white !important;
+}
 
 a {
   text-decoration: none;
