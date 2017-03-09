@@ -1,31 +1,29 @@
 <section ng-controller="DrinksIndexController as drinksIndex">
 
-  <div ng-show="drinksIndex.chooseDrinkAndTopping()">
+  <div ng-hide="drinksIndex.toppingsVisible">
     <h2 class="title">Choose your drink</h2>
     <table>
       <tr ng-repeat="drink in drinksIndex.all">
         <td class="name">{{ drink.name }} - </td>
         <td class="price">£{{ drink.price }}</td>
-        <td><button type="button" name="button" ng-click="drinksIndex.addToBasket(drink)">Add to cart</button></td>
+        <td><button type="button" name="button" ng-click="drinksIndex.addToOrderItem(drink, true)">Add to cart</button></td>
       </tr>
     </table>
   </div>
 
-
-  <!-- <div ng-controller="ToppingsIndexController as toppingsIndex" class="allToppings" ng-hide="drinksIndex.chooseDrinkAndTopping()"> -->
-  <div ng-hide="drinksIndex.chooseDrinkAndTopping()" class="allToppings">
+  <div ng-show="drinksIndex.toppingsVisible" class="allToppings">
     <h2 class="title">Choose your Topping</h2>
     <table>
       <tr ng-repeat="topping in drinksIndex.selectedDrink.availableTopping"  class="toppingInformation">
         <td class="name">{{ topping.name }}</td>
         <td class="price">£{{ topping.price }}</td>
-        <td><button type="button" class="basket" ng-click="drinksIndex.addToBasket({toppingName: drink.availebleTopping.name, toppingPrice: drink.availebleTopping.price})">Add to cart</button></td>
-        <!-- <td><button type="button" class="basket" ng-click="drinksIndex.addToBasket(drink)">Add to cart</button></td> -->
+        <td><button type="button" ng-click="drinksIndex.addToOrderItem(topping, false)">Add to cart</button></td>
       </tr>
     </table>
   </div>
 
-  <div class="basket">
-    <h4 class="title">Your Basket</h4>
+  <div class="basketDiv">
+    <button class="basket" ng-click="drinksIndex.addToBasket()">click here to view your basket</button>
+    <h6>{{ drinksIndex.basket.drink.name }}</h6>
   </div>
 </section>

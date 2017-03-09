@@ -9,31 +9,37 @@ function DrinksIndexController(Drink) {
   const drinksIndex = this;
   drinksIndex.selectedDrink = null;
   drinksIndex.toppingsVisible = false;
-
+  let orderItem = [];
   let basket = [];
 
   drinksIndex.all = Drink.query();
 
-  function addToBasket(drink) {
-    drinksIndex.selectedDrink = drink;
-    //drinksIndex.selectedDrink.availableTopping = topping;
+  function addToOrderItem (obj, isDrink){
+    if(isDrink) drinksIndex.selectedDrink = obj;
 
-    console.log(drink.availableTopping);
-    basket.push({drinkName: drink.name, drinkPrice: drink.price});
-    //toppingName: drink.availableTopping[1].name, toppingPrice: drink.availableTopping[1].prices
-    basket.length = Math.min(basket.length, 3);
-    console.log(basket);
+    orderItem.push(obj);
+    console.log("obj",obj);
+    drinksIndex.toppingsVisible = true;
+    orderItem.length = Math.min(orderItem.length, 3);
+    console.log("order-item",orderItem);
+  }
+  drinksIndex.addToOrderItem = addToOrderItem;
+
+  function addToBasket() {
+    let basket = orderItem;
+    console.log("basket",basket);
   }
   drinksIndex.addToBasket = addToBasket;
 
-  function chooseDrinkAndTopping() {
-    if(basket.length === 0) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  drinksIndex.chooseDrinkAndTopping = chooseDrinkAndTopping;
+
+  // function chooseDrinkAndTopping() {
+  //   if(basket.length === 0) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
+  // drinksIndex.chooseDrinkAndTopping = chooseDrinkAndTopping;
 }
 
 DrinksNewController.$inject = ['Drink', '$state'];
