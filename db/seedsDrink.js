@@ -46,7 +46,7 @@ Topping.create([{
   },{
     name: 'Cappuccino',
     price: 2.50,
-    availableTopping:  [toppings[0], toppings[1], 3, toppings[3] , toppings[5] , toppings[6]]
+    availableTopping:  [toppings[0], toppings[1], toppings[2], toppings[3] , toppings[5] , toppings[6]]
   },{
     name: 'Tea',
     price: 2.00,
