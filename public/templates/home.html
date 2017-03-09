@@ -5,7 +5,7 @@
     <table>
       <tr ng-repeat="drink in drinksIndex.all">
         <td class="name">{{ drink.name }} - </td>
-        <td class="price">£{{ drink.price }}</td>
+        <td class="price">£{{ drink.price | number : 2 }}</td>
         <td><button type="button" name="button" ng-click="drinksIndex.addToOrderItem(drink, true)">Add to cart</button></td>
       </tr>
     </table>
@@ -16,7 +16,7 @@
     <table>
       <tr ng-repeat="topping in drinksIndex.selectedDrink.availableTopping"  class="toppingInformation">
         <td class="name">{{ topping.name }}</td>
-        <td class="price">£{{ topping.price }}</td>
+        <td class="price">£{{ topping.price | number : 2 }}</td>
         <td><button type="button" ng-click="drinksIndex.addToOrderItem(topping, false)">Add to cart</button></td>
       </tr>
     </table>
@@ -25,10 +25,10 @@
   <div class="basketDiv">
     <button class="basket" ng-click="drinksIndex.addToBasket(drinksIndex.orderItem)">click here to view your basket</button>
     <div class="basketInfo">
-      <h6 id="drinkInfo">{{drinksIndex.basket[0].name}} {{drinksIndex.basket[0].price}}</h6>
-      <h6 id="toppingOneInfo">{{drinksIndex.basket[1].name}} {{drinksIndex.basket[1].price}}</h6>
-      <h6 id="toppingTwoInfo">{{drinksIndex.basket[2].name}} {{drinksIndex.basket[2].price}}</h6>
-      <h6 class="totalPrice">Total Price: {{drinksIndex.basket[0].price + drinksIndex.basket[1].price + drinksIndex.basket[2].price}}</h6>
+      <h6 id="drinkInfo">{{drinksIndex.basket[0].name}} {{drinksIndex.basket[0].price | number : 2}}</h6>
+      <h6 id="toppingOneInfo">{{drinksIndex.basket[1].name}} {{drinksIndex.basket[1].price | number : 2}}</h6>
+      <h6 id="toppingTwoInfo">{{drinksIndex.basket[2].name}} {{drinksIndex.basket[2].price | number : 2}}</h6>
+      <h6 class="totalPrice">Total Price: £{{drinksIndex.basket[0].price | number : 2 + drinksIndex.basket[1].price | number : 2 + drinksIndex.basket[2].price | number : 2}}</h6>
     </div>
 
   </div>
